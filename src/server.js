@@ -17,7 +17,7 @@ const typeDefs = gql`
   }
 
   type Link {
-    id: ID!,
+    id: ID!
     description: String!
     url: String!
   }
