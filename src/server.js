@@ -3,7 +3,7 @@ const { ApolloServer, gql } = require("apollo-server");
 // GraphQLスキーマま定義
 const typeDefs = gql`
   type Query {
-    info: string!
+    info: String!
   }
 `
 
@@ -13,3 +13,13 @@ const resolvers = {
     info: () => "HackerNewsクローン",
   }
 }
+
+// アポロサーバーのインスタンス化
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+})
+
+server
+  .listen()
+  .then(({url}) => console.log(`${url}でサーバーを起動中`))
