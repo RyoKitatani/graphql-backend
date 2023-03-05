@@ -8,9 +8,10 @@ const {getUserID} = require("./utils")
 // リゾルバ関係のファイル
 const Query = require("./resolvers/Query")
 const Mutation = require("./resolvers/Mutation")
+const Subscription = require("./resolvers/subscription")
 const Link = require("./resolvers/Link")
 const User = require("./resolvers/User")
-const Subscription = require("./resolvers/subscription")
+const Vote = require("./resolvers/vote")
 
 // サブスクリプションの実装
 // Publisher(送信者) / Subscriber(受信者)
@@ -25,7 +26,8 @@ const resolvers = {
   Mutation,
   Subscription,
   Link,
-  User
+  User,
+  Vote
 };
 
 // アポロサーバーのインスタンス化
