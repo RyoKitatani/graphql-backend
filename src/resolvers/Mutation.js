@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
-const jwt = require("json")
+const jwt = require("jsonwebtoken")
+const APP_SECRET = require("../utils")
 
-APP_SECRET = "Graphql"
 
 // ユーザーに新規登録のリゾルバ
 async function signup(parent, args, context) {
@@ -22,7 +22,6 @@ async function signup(parent, args, context) {
     user
   }
 }
-
 
 // ユーザーログイン
 async function login(parent, args, context) {
@@ -46,4 +45,13 @@ async function login(parent, args, context) {
     token,
     user
   }
+}
+
+async function post(parent, args, context) {
+  return await context.prisma.link.create({
+    data: {
+      url: args.url,
+      description: args.description,
+    }
+  });
 }
