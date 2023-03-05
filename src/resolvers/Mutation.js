@@ -80,10 +80,22 @@ async function vote(parent, args, context) {
   if(Boolean(vote)) {
     throw new Error(`すでに投票されていいます:${args.linkId}`);
   }
+
+  // 投票する
+  const newVote = await context.prisma.vote.create({
+    data: {
+      user: {connect: {id: userId}},
+      link: {connect: {id: Number(args.linkId)}},
+    },
+  });
+
+  // 送信する
+  context.pubsub.publish("NEW_VOTE")
 }
 
 module.exports = {
   signup,
   login,
-  post
+  post,
+  vote
 };
