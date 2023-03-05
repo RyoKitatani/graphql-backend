@@ -91,6 +91,8 @@ async function vote(parent, args, context) {
 
   // 送信する
   context.pubsub.publish("NEW_VOTE")
+
+  return newVote
 }
 
 module.exports = {
