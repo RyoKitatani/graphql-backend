@@ -34,5 +34,5 @@ function getUserID(req, authToken) {
 
 module.exports = {
   APP_SECRET,
-  getUserID,
+  getUserID
 };
