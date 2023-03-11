@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+/*
+複数行はアスタリスクを使う
+*/
+
 // HelloWorld
 func main() {
 	fmt.Println("Hello World")
